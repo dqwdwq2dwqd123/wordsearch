@@ -86,8 +86,8 @@ function fillGrid() {
 
 // Render the grid
 function renderGrid() {
-  const gridSizeInPixels = Math.min(window.innerWidth - 40, 600); // Ensure grid fits within the viewport
-  const cellSize = Math.floor(gridSizeInPixels / gridSize); // Calculate cell size based on grid size
+  const containerWidth = Math.min(window.innerWidth - 20, 400); // Max width 400px for small screens
+  const cellSize = Math.floor(containerWidth / gridSize); // Calculate cell size dynamically
 
   gridContainer.style.gridTemplateColumns = `repeat(${gridSize}, ${cellSize}px)`;
   gridContainer.style.gridTemplateRows = `repeat(${gridSize}, ${cellSize}px)`;
@@ -103,6 +103,7 @@ function renderGrid() {
     });
   });
 }
+
 
 // Update the word list when a word is found
 function updateWordList(foundWord) {
