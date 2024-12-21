@@ -1,49 +1,78 @@
 /* styles.css */
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 20px;
-    background-color: #ffe4e1; /* Light pink background */
-  }
-  
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 20px;
+  background-color: #ffe4e1; /* Light pink background */
+}
+
+h1 {
+  color: #ff1493; /* Deep pink title */
+  font-size: 1.8rem;
+}
+
+#word-list {
+  font-weight: bold;
+  color: #c71585; /* Medium violet red */
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+#word-search-grid {
+  display: grid;
+  gap: 5px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.letter {
+  background-color: #ffc0cb; /* Pink background */
+  border: 1px solid #ff69b4; /* Hot pink border */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #6a0dad; /* Purple letter */
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.letter:hover {
+  background-color: #ffb6c1; /* Lighter pink on hover */
+}
+
+.letter.selected {
+  background-color: #ff69b4; /* Hot pink for selected letters */
+  color: #ffffff; /* White text for selected letters */
+}
+
+@media (max-width: 768px) {
   h1 {
-    color: #ff1493; /* Deep pink title */
+    font-size: 1.5rem;
   }
-  
+
   #word-search-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 40px);
-    gap: 2px;
-    justify-content: center;
-    margin-top: 20px;
+    gap: 3px;
   }
-  
+
   .letter {
-    width: 40px;
-    height: 40px;
-    background-color: #ffc0cb; /* Pink grid background */
-    border: 1px solid #ff69b4; /* Hot pink border */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    color: #6a0dad; /* Purple letter color */
+    font-size: 0.8rem;
   }
-  
-  .letter:hover {
-    background-color: #ffb6c1; /* Lighter pink on hover */
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.2rem;
   }
-  
-  .letter.selected {
-    background-color: #ff69b4; /* Hot pink for selected letters */
-    color: #ffffff; /* White text for selected letters */
+
+  #word-search-grid {
+    gap: 2px;
   }
-  
-  #word-list {
-    font-weight: bold;
-    color: #c71585; /* Medium violet red for word list */
+
+  .letter {
+    font-size: 0.6rem;
+    width: 30px;
+    height: 30px;
   }
-  
+}
