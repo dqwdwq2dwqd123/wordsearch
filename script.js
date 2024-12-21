@@ -86,12 +86,19 @@ function fillGrid() {
 
 // Render the grid
 function renderGrid() {
-  gridContainer.style.gridTemplateColumns = `repeat(${gridSize}, 40px)`;
+  const gridSizeInPixels = Math.min(window.innerWidth - 40, 600); // Ensure grid fits within the viewport
+  const cellSize = Math.floor(gridSizeInPixels / gridSize); // Calculate cell size based on grid size
+
+  gridContainer.style.gridTemplateColumns = `repeat(${gridSize}, ${cellSize}px)`;
+  gridContainer.style.gridTemplateRows = `repeat(${gridSize}, ${cellSize}px)`;
+
   grid.forEach((row) => {
     row.forEach((letter) => {
       const cell = document.createElement("div");
       cell.textContent = letter;
       cell.classList.add("letter");
+      cell.style.width = `${cellSize}px`;
+      cell.style.height = `${cellSize}px`;
       gridContainer.appendChild(cell);
     });
   });
