@@ -86,29 +86,27 @@ function fillGrid() {
 
 // Render the grid
 function renderGrid() {
-  const containerWidth = Math.min(window.innerWidth - 20, 400); // Max width 400px for small screens
-  const cellSize = Math.floor(containerWidth / gridSize); // Calculate cell size dynamically
-
-  gridContainer.style.gridTemplateColumns = `repeat(${gridSize}, ${cellSize}px)`;
-  gridContainer.style.gridTemplateRows = `repeat(${gridSize}, ${cellSize}px)`;
-
+  gridContainer.style.gridTemplateColumns = `repeat(${gridSize}, 40px)`;
   grid.forEach((row) => {
     row.forEach((letter) => {
       const cell = document.createElement("div");
       cell.textContent = letter;
       cell.classList.add("letter");
-      cell.style.width = `${cellSize}px`;
-      cell.style.height = `${cellSize}px`;
       gridContainer.appendChild(cell);
     });
   });
 }
 
-
 // Update the word list when a word is found
 function updateWordList(foundWord) {
   remainingWords = remainingWords.filter((word) => word !== foundWord);
   wordListElement.textContent = remainingWords.join(", ");
+
+  // Check if all words are found
+  if (remainingWords.length === 0) {
+    // Redirect to the "Congratulations" page
+    window.location.href = "congrats.html"; // Replace with the actual path to your page
+  }
 }
 
 // Place all words and render the grid
